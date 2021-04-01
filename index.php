@@ -17,6 +17,15 @@ class Validator {
 		
 	}
 
+	public function max($int) {
+		if (strlen($this->data) > $int) {
+			$this->errors[] = "Количество символов не может быть больше $int";			
+		}
+
+		return $this;
+		
+	}
+
 	public function email() {
 		if ( !filter_var($this->data, FILTER_VALIDATE_EMAIL)) {
 			$this->errors[] = "Введен не корректный эмейл";
@@ -44,29 +53,6 @@ class Validator {
 		return true;
 	}
 }
-
-$v = new Validator;
-
-$data1 = "n";
-
-$v->check($data1,
-	[
-		'min' => 2
-	]
-);
-
-$data2 = "d@d.ru";
-
-$v->check($data2,
-	[
-		'min' => 2,
-		'email' => true
-	]
-);
-
-$v2 = new Validator($data2);
-
-
 
 
 
