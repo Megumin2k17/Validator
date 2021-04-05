@@ -45,29 +45,6 @@ class Validator {
 	}
 }
 
-$v = new Validator;
-
-$data1 = "n";
-
-$v->check($data1,
-	[
-		'min' => 2
-	]
-);
-
-$data2 = "d@d.ru";
-
-$v->check($data2,
-	[
-		'min' => 2,
-		'email' => true
-	]
-);
-
-$v2 = new Validator($data2);
-
-
-
 
 
 ?>
